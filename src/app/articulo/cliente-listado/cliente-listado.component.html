@@ -1,0 +1,35 @@
+<div class="container py-3">
+    <button class="btn btn-primary" (click)="nuevoCliente()">Cargar Cliente</button>
+</div>
+
+
+<div class="container py-5">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Saldo</th>
+            <th scope="col">Limite Fiado</th>
+            <th scope="col">Despacho</th>
+            <th scope="col">Accion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let clientes of clientes">        
+            <td>{{clientes.id}}</td>
+            <td>{{clientes.nombre}}</td>
+            <td>{{clientes.telefono}}</td>
+            <td>{{clientes.saldo}}</td>
+            <td>{{clientes.limiteFiado}}</td>
+            <td>{{clientes.tipoDespacho?.nombre}}</td>
+            <td>
+                <button class="btn btn-warning" (click)="actualizarCliente(clientes.id)">Modificar</button>
+                <app-cliente-baja [id]="clientes.id" (click)="cargarListado()"></app-cliente-baja>
+            </td>
+          </tr>     
+        </tbody>
+      </table>
+</div>
+
